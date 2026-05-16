@@ -90,18 +90,21 @@ export default function CTASection() {
           className="max-w-md mx-auto mb-20"
         >
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="flex gap-3">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-3"
+            >
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="flex-1 bg-white/8 border border-white/15 rounded-full px-5 py-3.5 text-sm font-mono text-white placeholder-white/35 focus:outline-none focus:border-ocean/60 transition-colors backdrop-blur-sm"
+                className="w-full sm:flex-1 bg-white/8 border border-white/15 rounded-full px-5 py-3.5 text-sm font-mono text-white placeholder-white/35 focus:outline-none focus:border-ocean/60 transition-colors backdrop-blur-sm"
               />
               <button
                 type="submit"
-                className="btn-primary glow-ocean bg-ocean text-abyss px-7 py-3.5 rounded-full font-mono font-bold text-xs tracking-[0.16em] uppercase whitespace-nowrap hover:bg-white transition-colors"
+                className="btn-primary glow-ocean w-full sm:w-auto bg-ocean text-abyss px-7 py-3.5 rounded-full font-mono font-bold text-xs tracking-[0.16em] uppercase whitespace-nowrap hover:bg-white transition-colors"
               >
                 Join Wave
               </button>

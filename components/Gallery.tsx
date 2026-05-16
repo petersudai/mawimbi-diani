@@ -183,7 +183,7 @@ export default function Gallery() {
         {/* Wide cinematic strip */}
         <div
           ref={stripRef}
-          className="relative mt-8 lg:mt-8 aspect-[21/9] overflow-hidden rounded-2xl"
+          className="relative mt-8 aspect-[3/2] sm:aspect-[2/1] lg:aspect-[21/9] overflow-hidden rounded-2xl"
         >
           <motion.div style={{ y: stripY }} className="absolute inset-[-7%]">
             <Image

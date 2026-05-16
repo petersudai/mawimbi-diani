@@ -57,6 +57,17 @@ body {
   transition: transform 0.4s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
 }
 
+/* Touch devices: restore the native cursor, hide the custom one */
+@media (hover: none), (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
