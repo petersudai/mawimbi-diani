@@ -91,9 +91,6 @@ export default function HeroCanvas() {
           col.rgb = mix(col.rgb, col.rgb * vec3(0.72, 0.90, 1.07), (1.0 - lum) * 0.24);
           col.rgb = mix(col.rgb, col.rgb * vec3(1.10, 1.03, 0.92), lum * 0.14);
 
-          // vignette
-          float vig = smoothstep(1.15, 0.30, length(vUv - 0.5));
-          col.rgb *= mix(0.66, 1.0, vig);
 
           gl_FragColor = vec4(col.rgb, uOpacity);
         }

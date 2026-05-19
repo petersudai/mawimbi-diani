@@ -35,9 +35,6 @@ export default function Hero() {
       {/* WebGL photo layer */}
       <HeroCanvas />
 
-      {/* Legibility gradients */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-abyss via-abyss/20 to-abyss/40 pointer-events-none" />
-      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-abyss/70 via-transparent to-transparent pointer-events-none" />
 
       {/* Concentric halo rings */}
       <div className="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none overflow-hidden">
