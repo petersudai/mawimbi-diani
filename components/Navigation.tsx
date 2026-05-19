@@ -53,7 +53,8 @@ export default function Navigation() {
               <motion.a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="text-[11px] tracking-[0.2em] uppercase text-muted hover:text-white transition-colors duration-300 font-mono"
+                className="text-[11px] tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300 font-mono"
+                style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + i * 0.08 }}

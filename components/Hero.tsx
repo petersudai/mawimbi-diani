@@ -35,6 +35,11 @@ export default function Hero() {
       {/* WebGL photo layer */}
       <HeroCanvas />
 
+      {/* Directional dimming — wraps text areas, beach centre stays open */}
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/30 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/50 via-black/20 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/45 via-black/20 to-transparent pointer-events-none" />
+
 
       {/* Concentric halo rings */}
       <div className="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none overflow-hidden">
@@ -68,7 +73,10 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.4 }}
       >
-        <span className="font-mono text-[10px] tracking-[0.3em] text-ocean/70 [writing-mode:vertical-rl]">
+        <span
+          className="font-mono text-[10px] tracking-[0.3em] text-ocean [writing-mode:vertical-rl]"
+          style={{ textShadow: '0 0 16px rgba(0,0,0,1)' }}
+        >
           [ 01 / INTRO ]
         </span>
         <div className="w-px h-20 bg-gradient-to-b from-ocean/50 to-transparent" />
@@ -83,12 +91,18 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <div className="font-mono text-[10px] lg:text-[11px] tracking-[0.28em] uppercase text-white/70 leading-relaxed">
+          <div
+            className="font-mono text-[10px] lg:text-[11px] tracking-[0.28em] uppercase text-white leading-relaxed"
+            style={{ textShadow: '0 0 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.6)' }}
+          >
             Mawimbi<span className="text-ocean">®</span> Energy
             <br />
-            <span className="text-white/40">Coastal Hydration. Est. Diani</span>
+            <span className="text-white/90">Coastal Hydration. Est. Diani</span>
           </div>
-          <div className="hidden md:block text-right font-mono text-[10px] tracking-[0.28em] uppercase text-white/40 leading-relaxed">
+          <div
+            className="hidden md:block text-right font-mono text-[10px] tracking-[0.28em] uppercase text-white/90 leading-relaxed"
+            style={{ textShadow: '0 0 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.6)' }}
+          >
             Indian Ocean
             <br />
             4°S 39°E
@@ -109,6 +123,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               className="font-mono text-[11px] tracking-[0.32em] uppercase text-ocean"
+              style={{ textShadow: '0 0 16px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.8)' }}
             >
               Born from the tide
             </motion.p>
@@ -141,7 +156,7 @@ export default function Hero() {
             variants={fade}
             initial="hidden"
             animate="visible"
-            className="mt-8 max-w-md text-white/65 text-sm lg:text-base leading-relaxed font-light"
+            className="mt-8 max-w-md text-white/90 text-sm lg:text-base leading-relaxed font-light tracking-wide"
           >
             An energy drink crafted at the edge of the Indian Ocean, in Diani
             Beach, Kenya. Marine minerals, baobab, zero sugar. The relentless
@@ -164,7 +179,7 @@ export default function Hero() {
             </a>
             <a
               href="#story"
-              className="px-8 py-3.5 rounded-full border border-white/25 font-mono text-xs tracking-[0.18em] uppercase text-white/80 hover:border-ocean/70 hover:text-ocean transition-all duration-300"
+              className="px-8 py-3.5 rounded-full border border-white/60 bg-black/25 backdrop-blur-sm font-mono text-xs tracking-[0.18em] uppercase text-white hover:border-ocean/70 hover:text-ocean transition-all duration-300"
             >
               The Origin
             </a>
@@ -180,7 +195,10 @@ export default function Hero() {
           animate="visible"
         >
           <div className="flex flex-col items-center gap-3">
-            <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-white/50">
+            <span
+              className="font-mono text-[9px] tracking-[0.3em] uppercase text-white/90"
+              style={{ textShadow: '0 0 16px rgba(0,0,0,0.95)' }}
+            >
               Scroll
             </span>
             <motion.div
