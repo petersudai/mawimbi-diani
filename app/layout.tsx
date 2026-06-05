@@ -5,11 +5,19 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://mawimbi.energy'),
   title: 'MAWIMBI | Unleash The Tide Within',
-  description: 'Mawimbi Energy. An energy drink crafted at the edge of the Indian Ocean in Diani Beach, Kenya. Marine minerals, baobab, zero sugar.',
+  description: 'An energy drink crafted at the edge of the Indian Ocean. Marine minerals, baobab, zero sugar. Born in Diani Beach, Kenya.',
   openGraph: {
     title: 'MAWIMBI | Unleash The Tide Within',
+    description: 'Coastal energy, born from the tide. Marine minerals, baobab, zero sugar. Diani Beach, Kenya.',
+    url: 'https://mawimbi.energy',
+    siteName: 'MAWIMBI Energy',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MAWIMBI | Unleash The Tide Within',
     description: 'Coastal energy, born from the tide. Diani Beach, Kenya.',
-    images: ['/photos/diani-hero.jpg'],
   },
 }
 
