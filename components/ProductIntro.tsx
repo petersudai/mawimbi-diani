@@ -96,46 +96,54 @@ export default function ProductIntro() {
             </motion.a>
           </div>
 
-          {/* Layered can images */}
+          {/* Layered can images — real product photography */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="order-1 lg:order-2 relative"
+            className="order-1 lg:order-2"
           >
-            {/* Main shot */}
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-inset ring-white/10">
-              <Image
-                src="/photos/can-sand.png"
-                alt="A Mawimbi energy drink can resting on Diani Beach sand"
-                fill
-                sizes="(max-width: 1024px) 100vw, 48vw"
-                quality={92}
-                className="object-cover"
-              />
+            {/* Inner wrapper carries the max-width + centering (a normal block,
+                so max-w + mx-auto behaves correctly and never collapses) */}
+            <div className="relative mx-auto w-full max-w-[360px] sm:max-w-sm lg:max-w-md">
+              {/* Warm glow behind the can */}
+              <div className="absolute -inset-8 bg-[radial-gradient(ellipse_at_center,_rgba(216,186,139,0.22)_0%,_transparent_68%)] blur-2xl pointer-events-none" />
+
+              {/* Main shot — Ginger Root, portrait */}
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl ring-1 ring-inset ring-white/10">
+                <Image
+                  src="/photos/can-ginger-root.png"
+                  alt="The Mawimbi Ginger Root energy drink, condensation on the can, palm shadow on warm Diani sand"
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 460px"
+                  quality={92}
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
+              {/* Overlapping accent shot — Green Tea */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute -bottom-10 -left-6 lg:-left-12 w-28 lg:w-40 aspect-[3/4] overflow-hidden rounded-xl ring-1 ring-white/15 shadow-2xl shadow-black/60"
+              >
+                <Image
+                  src="/photos/can-green-tea.png"
+                  alt="The Mawimbi Green Tea energy drink on warm coastal sand"
+                  fill
+                  sizes="160px"
+                  quality={92}
+                  className="object-cover"
+                />
+              </motion.div>
+
+              {/* Corner bracket */}
+              <div className="absolute top-5 right-5 w-9 h-9 border-t border-r border-ocean/40" />
             </div>
-
-            {/* Overlapping accent shot */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -bottom-12 -left-6 lg:-left-12 w-36 lg:w-52 aspect-square overflow-hidden rounded-xl ring-1 ring-white/15 shadow-2xl shadow-black/60"
-            >
-              <Image
-                src="/photos/can-beach.png"
-                alt="A Mawimbi can against the Indian Ocean"
-                fill
-                sizes="208px"
-                quality={92}
-                className="object-cover"
-              />
-            </motion.div>
-
-            {/* Corner bracket */}
-            <div className="absolute top-5 right-5 w-9 h-9 border-t border-r border-ocean/40" />
           </motion.div>
         </div>
       </div>

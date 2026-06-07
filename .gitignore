@@ -40,3 +40,6 @@ next-env.d.ts
 /.claude
 .idea
 .vscode
+
+# Raw media source (large, not deployed)
+_media-source/

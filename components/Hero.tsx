@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 const HeroCanvas = dynamic(() => import('./HeroCanvas'), { ssr: false })
@@ -23,22 +24,62 @@ const fade = {
 }
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Nudge autoplay — some browsers (and unfocused tabs) won't honour the
+  // autoPlay attribute alone. Respect users who prefer reduced motion.
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    // React doesn't always reflect the `muted` JSX prop to the DOM property,
+    // which can cause browsers to block autoplay. Force it on before playing.
+    v.muted = true
+    const tryPlay = () => v.play().catch(() => {})
+    if (v.readyState >= 2) tryPlay()
+    v.addEventListener('canplay', tryPlay)
+    return () => v.removeEventListener('canplay', tryPlay)
+  }, [])
+
   return (
     <section
       className="relative w-full h-[100svh] min-h-[680px] overflow-hidden bg-abyss"
       style={{
-        backgroundImage: 'url(/photos/diani-hero.jpg)',
+        backgroundImage: 'url(/video/diani-hero-poster.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      {/* WebGL photo layer */}
+      {/* Looping Diani waves — base layer. Fades in once it can play.
+          Hidden for users who prefer reduced motion (poster image remains). */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/video/diani-hero-poster.jpg"
+        className="absolute inset-0 z-0 h-full w-full object-cover motion-reduce:hidden"
+      >
+        <source src="/video/diani-hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* WebGL particle layer (drifting light motes) */}
       <HeroCanvas />
 
-      {/* Directional dimming — wraps text areas, beach centre stays open */}
+      {/* ── Cinematic treatment ──────────────────────────────────────────
+          Even darkening across the whole frame deepens the footage for a
+          premium feel and masks phone-video softness uniformly. Subtle
+          grounding gradients keep the text legible. */}
+      {/* Even overall darken — uniform, no vignette */}
+      <div className="absolute inset-0 z-[2] bg-abyss/50 pointer-events-none" />
+      {/* Bottom grounding — anchors text, fades into the next section */}
+      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-abyss/70 via-transparent to-transparent pointer-events-none" />
+      {/* Left — headline + body legibility */}
+      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/30 via-transparent to-transparent pointer-events-none" />
+      {/* Top — nav legibility */}
       <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/30 via-transparent to-transparent pointer-events-none" />
-      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/50 via-black/20 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/45 via-black/20 to-transparent pointer-events-none" />
 
 
       {/* Concentric halo rings */}
