@@ -33,11 +33,21 @@ export default function Navigation() {
             className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 relative">
-                <div className="absolute inset-0 border-2 border-ocean rounded-full" />
-                <div className="absolute inset-[3px] bg-ocean rounded-full opacity-60" />
-              </div>
+            <div className="flex items-center gap-2.5">
+              {/* Wave mark — three arcs, ocean blue (matches the favicon) */}
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 32 32"
+                fill="none"
+                className="shrink-0"
+                aria-hidden
+                style={{ filter: 'drop-shadow(0 1px 6px rgba(0,0,0,0.8))' }}
+              >
+                <path d="M2 9 Q9 4 16 9 Q23 14 30 9" stroke="#00E5FF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.32" />
+                <path d="M2 16 Q9 11 16 16 Q23 21 30 16" stroke="#00E5FF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.62" />
+                <path d="M2 23 Q9 18 16 23 Q23 28 30 23" stroke="#00E5FF" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" opacity="1" />
+              </svg>
               <span
                 className="text-xl tracking-[0.25em] font-display text-white"
                 style={{ fontFamily: 'var(--font-display)' }}
