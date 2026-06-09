@@ -72,14 +72,14 @@ export default function Hero() {
           Even darkening across the whole frame deepens the footage for a
           premium feel and masks phone-video softness uniformly. Subtle
           grounding gradients keep the text legible. */}
-      {/* Even overall darken — uniform, no vignette */}
-      <div className="absolute inset-0 z-[2] bg-abyss/50 pointer-events-none" />
+      {/* Even overall darken — uniform, stronger to mask phone-video softness */}
+      <div className="absolute inset-0 z-[2] bg-abyss/65 pointer-events-none" />
       {/* Bottom grounding — anchors text, fades into the next section */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-abyss/70 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-t from-abyss/85 via-abyss/10 to-transparent pointer-events-none" />
       {/* Left — headline + body legibility */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/30 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
       {/* Top — nav legibility */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/30 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
 
 
       {/* Concentric halo rings */}
