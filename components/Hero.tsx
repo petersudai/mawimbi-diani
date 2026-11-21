@@ -43,7 +43,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full h-[100svh] min-h-[680px] overflow-hidden bg-abyss"
+      className="relative w-full h-[100svh] min-h-[540px] overflow-hidden bg-abyss"
       style={{
         backgroundImage: 'url(/video/diani-hero-poster.jpg)',
         backgroundSize: 'cover',
@@ -123,7 +123,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 h-full max-w-[1440px] mx-auto px-6 lg:px-14 flex flex-col justify-between pt-28 pb-10">
+      <div className="relative z-10 h-full max-w-[1440px] mx-auto px-6 lg:px-14 flex flex-col justify-between pt-[clamp(5rem,12svh,7rem)] pb-[clamp(1rem,4svh,2.5rem)]">
         {/* Top eyebrow */}
         <motion.div
           className="flex items-start justify-between"
@@ -176,7 +176,7 @@ export default function Hero() {
                 variants={reveal}
                 initial="hidden"
                 animate="visible"
-                className="font-display text-[clamp(68px,13vw,210px)] leading-[0.85] tracking-[-0.005em] uppercase"
+                className="font-display text-[clamp(68px,min(13vw,17svh),210px)] leading-[0.85] tracking-[-0.005em] uppercase"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {line === 'The Tide' ? (
@@ -196,7 +196,7 @@ export default function Hero() {
             variants={fade}
             initial="hidden"
             animate="visible"
-            className="mt-8 max-w-md text-white/90 text-sm lg:text-base leading-relaxed font-light tracking-wide"
+            className="mt-[clamp(1rem,3svh,2rem)] max-w-md text-white/90 text-sm lg:text-base leading-relaxed font-light tracking-wide"
           >
             An energy drink crafted at the edge of the Indian Ocean, in Diani
             Beach, Kenya. Marine minerals, baobab, zero sugar. The relentless
@@ -208,7 +208,7 @@ export default function Hero() {
             variants={fade}
             initial="hidden"
             animate="visible"
-            className="mt-9 flex flex-wrap items-center gap-4"
+            className="mt-[clamp(1.25rem,3.5svh,2.25rem)] flex flex-wrap items-center gap-4"
           >
             <a
               href="#order"
@@ -226,9 +226,10 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Bottom row */}
+        {/* Scroll cue — out of the layout flow so it never pushes the CTAs
+            down; dropped entirely on short screens. */}
         <motion.div
-          className="flex items-end justify-end"
+          className="absolute right-6 lg:right-14 bottom-[clamp(1rem,4svh,2.5rem)] flex items-end justify-end [@media(max-height:760px)]:hidden"
           custom={3}
           variants={fade}
           initial="hidden"
